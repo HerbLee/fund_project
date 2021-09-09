@@ -2,11 +2,19 @@ from aiomysql.sa import create_engine
 import aioredis
 
 from .common import metadata
-from .user import UserModel, UserSchema
-from .family import FamilyModel, FamilySchema
-from .user_family import UserFamilyModel, UserFamilySchema
+# from .user import UserModel, UserSchema
+# from .family import FamilyModel, FamilySchema
+# from .user_family import UserFamilyModel, UserFamilySchema
+from .fund_company import FundCompanyModel
+from .fund_company_manager import FundCompanyManagerModel
+from .fund_manager import FundManagerModel
+from .fund_info import FundInfoModel
+from .fund_company_info import FundCompanyInfoModel
+from .fund_manager_info import FundManagerInfoModel
 
-db_list = [UserModel, FamilyModel, UserFamilyModel]
+# db_list = [UserModel, FamilyModel, UserFamilyModel]
+db_list = [FundCompanyModel, FundCompanyManagerModel, FundManagerModel, FundInfoModel, FundCompanyInfoModel,
+           FundManagerInfoModel]
 
 
 async def init_db(config):

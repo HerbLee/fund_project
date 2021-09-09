@@ -1,4 +1,4 @@
-NAME = 'ONEHAVEN'
+NAME = 'fund_service'
 
 DATA_PATH = 'log'
 HOST = '0.0.0.0'
@@ -17,7 +17,7 @@ SESSION_EXPIRY = 30 * 24 * 3600
 # MySQL connection parameters
 MYSQL_HOST = 'localhost'
 MYSQL_PORT = 3309
-MYSQL_DB = 'onehaven'
+MYSQL_DB = 'fund_db'
 MYSQL_USER = 'root'
 MYSQL_PASSWORD = '123'
 MYSQL_TIMEOUT = 1

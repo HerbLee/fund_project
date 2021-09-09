@@ -1,11 +1,11 @@
-# 一个港湾家庭网站后台网关
+# 基金服务网站
 
 ### 安装说明
 ```pythonregexp
+# 安装依赖
 pip install -r doc/requirements.txt
+
+# 安装数据表
 python manage.py
 ```
 
-
-# NEXT
-接入阿里云的短信功能, 并且开发好用户系统, 接入用户头像系统
