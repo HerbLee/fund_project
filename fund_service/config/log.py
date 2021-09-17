@@ -2,32 +2,31 @@ import sys
 
 
 def get_log_config(config):
-    default_level = 'DEBUG' if config['DEBUG'] else 'INFO'
+    default_level = 'DEBUG' if config.DEBUG else 'INFO'
 
     return {
         'version': 1,
         'disable_existing_loggers': False,
         'loggers': {
             'sanic.root': {
-                'level': config.get('LOGGER_SANIC_ROOT_LEVEL', default_level),
+                'level': default_level,
                 'handlers': ['console'],
             },
             'sanic.error': {
-                'level': config.get('LOGGER_SANIC_ERROR_LEVEL', default_level),
+                'level':  default_level,
                 'handlers': ['error_console'],
                 'propagate': True,
                 'qualname': 'sanic.error',
             },
             'sanic.access': {
-                'level': config.get('LOGGER_SANIC_ACCESS_LEVEL', default_level),
-                'handlers': [config.get('LOGGER_SANIC_ACCESS_HANDLER',
-                                        'access_console')],
+                'level': default_level,
+                'handlers': ['access_console'],
                 'propagate': True,
                 'qualname': 'sanic.access',
             },
             'app': {
-                'level': config.get('LOGGER_APP_LEVEL', default_level),
-                'handlers': [config.get('LOGGER_APP_HANDLER', 'app_console')],
+                'level': default_level,
+                'handlers': ['app_console'],
                 'propagate': True,
                 'qualname': 'app',
             },
@@ -51,7 +50,7 @@ def get_log_config(config):
             'access_file': {
                 'class': 'logging.handlers.RotatingFileHandler',
                 'formatter': 'access',
-                'filename': '{}/access.log'.format(config['DATA_PATH']),
+                'filename': '{}/access.log'.format(config.DATA_PATH),
                 'maxBytes': 10 * 1024 * 1024,
             },
             'app_console': {
@@ -62,7 +61,7 @@ def get_log_config(config):
             'app_file': {
                 'class': 'logging.handlers.RotatingFileHandler',
                 'formatter': 'generic',
-                'filename': '{}/app.log'.format(config['DATA_PATH']),
+                'filename': '{}/app.log'.format(config.DATA_PATH),
                 'maxBytes': 10 * 1024 * 1024,
             },
         },
